@@ -1,0 +1,5 @@
+{
+  "kube-context": "docker-desktop",
+  "kube-job-template-path": "mlflow_kube/examples/docker/kubernetes_job_template.yaml",
+  "repository-uri": "lachris79/mlflowrun:latest"
+}

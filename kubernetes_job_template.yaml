@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "mlflow-example"
+  namespace: default
+spec:
+  ttlSecondsAfterFinished: 100
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: "mlflow-example"
+          image: "mlflow-docker-example"
+          command: ["sleep 300"]
+          env: 
+          - name: MLFLOW_TRACKING_URI
+            value: "http://mlflow.test.fedcloud.eu/"
+          resources:
+            limits:
+              memory: 512Mi
+            requests:
+              memory: 256Mi
+      restartPolicy: Never
